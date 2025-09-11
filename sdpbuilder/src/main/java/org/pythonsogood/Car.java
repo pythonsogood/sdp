@@ -1,20 +1,5 @@
 package org.pythonsogood;
 
-// Checklist:
-
-// [x] Functions must be very small
-// [x] Prefer bodies shorter than 20 lines; ideally one screen or fewer
-// [x] Each block (if/else, loop) should be a single call at a uniform level of abstraction
-// [x] Do one thing, and do it well
-// [x] A function’s name defines its abstraction level; its internals should only implement that level
-// [x] If you can extract a subtask and name it without merely restating code, the original function was doing too much
-// [x] One level of abstraction per function
-// [x] Avoid mixing high-level concepts (e.g., getHtml()) with low-level details (.append("\n"))
-// [x] Follow the “step-down rule”: arrange functions so each introduces the next level of detail
-// [x] Minimize nesting
-// [x] Keep indent depth to one or two levels
-// [x] Collapse conditionals into single-call blocks to maintain a clear, top-down reading flow
-
 public class Car {
     private final String brand;
 	private final String model;
