@@ -5,11 +5,11 @@ import org.pythonsogood.factories.IOSApplicationFactory;
 import org.pythonsogood.interfaces.Application;
 
 public class Main {
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		AndroidApplicationFactory androidApplicationFactory = new AndroidApplicationFactory();
 		IOSApplicationFactory iOSApplicationFactory = new IOSApplicationFactory();
 
-        Developer androidDeveloper = new Developer(androidApplicationFactory);
+		Developer androidDeveloper = new Developer(androidApplicationFactory);
 		Developer iOSDeveloper = new Developer(iOSApplicationFactory);
 
 		Application androidApplication = androidDeveloper.developApplication();
@@ -17,5 +17,5 @@ public class Main {
 
 		Application iOSApplication = iOSDeveloper.developApplication();
 		iOSApplication.run();
-    }
+	}
 }

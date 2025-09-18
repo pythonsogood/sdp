@@ -7,8 +7,8 @@ import org.pythonsogood.interfaces.Laptop;
 import org.pythonsogood.interfaces.Phone;
 
 public class Main {
-    public static void main(String[] args) {
-        DeviceFactory appleDeviceFactory = new AppleDeviceFactory();
+	public static void main(String[] args) {
+		DeviceFactory appleDeviceFactory = new AppleDeviceFactory();
 		DeviceFactory huaweiDeviceFactory = new HuaweiDeviceFactory();
 
 		Laptop appleLaptop = appleDeviceFactory.createLaptop();
@@ -22,5 +22,5 @@ public class Main {
 
 		Phone huaweiPhone = huaweiDeviceFactory.createPhone();
 		huaweiPhone.call();
-    }
+	}
 }
