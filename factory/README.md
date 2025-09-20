@@ -32,6 +32,10 @@ Application developApplication();
 Application developApplication();
 ```
 
+### UML
+
+![UML](/factory/assets/uml.png)
+
 ### Usage
 
 ```java

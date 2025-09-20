@@ -41,6 +41,10 @@ Laptop createLaptop();
 Phone createPhone();
 ```
 
+### UML
+
+![UML](/abstractfactory/assets/uml.png)
+
 ### Usage
 
 ```java
