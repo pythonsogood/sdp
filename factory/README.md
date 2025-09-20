@@ -26,8 +26,6 @@ void run();
 Application developApplication();
 ```
 
-`ApplicationTypes` enum `ANDROID, IOS`
-
 `Developer` class
 
 ```java
