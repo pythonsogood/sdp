@@ -38,9 +38,9 @@ public class InchToMeterAdapter implements MetricValue {
 	@Override
 	public String toString() {
 		if (this.getExponent() != 1) {
-			return String.format("%sm (%s''^%s)", this.getValue(), this.getExponent(), this.getInches(), this.getExponent());
+			return String.format("%s m^%s (%s ''^%s)", this.getValue(), this.getExponent(), this.getInches(), this.getExponent());
 		}
 
-		return String.format("%sm (%s'')", this.getValue(), this.getInches());
+		return String.format("%s m (%s '')", this.getValue(), this.getInches());
 	}
 }

@@ -34,9 +34,9 @@ public class Inch implements Value {
 	@Override
 	public String toString() {
 		if (this.exponent != 1) {
-			return String.format("%s''^%s", this.value, this.exponent);
+			return String.format("%s ''^%s", this.value, this.exponent);
 		}
 
-		return String.format("%s''", this.value);
+		return String.format("%s ''", this.value);
 	}
 }

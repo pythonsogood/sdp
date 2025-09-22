@@ -1,9 +1,10 @@
 package org.pythonsogood.shapes;
 
 import org.pythonsogood.interfaces.MetricValue;
+import org.pythonsogood.interfaces.Shape;
 import org.pythonsogood.types.Meter;
 
-public class MetricBox {
+public class MetricBox implements Shape {
 	private MetricValue length;
 	private MetricValue width;
 	private MetricValue height;
