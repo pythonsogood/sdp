@@ -61,7 +61,7 @@ MetricValue getArea();
 
 ### UML
 
-![UML](/adapter/assets/uml.png)
+![UML](/adapter/assets/uml.svg)
 
 ### Usage
 
