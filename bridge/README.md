@@ -4,11 +4,65 @@
 
 ## Overview
 
+`Render` interface
+
+```java
+void renderCircle(int x, int y, int radius);
+void renderSquare(int x, int y, int length);
+```
+
+`Shape` abstract class
+
+```java
+int getX();
+int getY();
+Render getRender();
+abstract void render();
+```
+
+`PixelArtRender`, `VectorRender` classes implements `Render`
+
+```java
+void renderCircle(int x, int y, int radius);
+void renderSquare(int x, int y, int length);
+```
+
+`Circle` class
+
+```java
+int getRadius();
+void render();
+```
+
+`Square` class
+
+```java
+int getLength();
+void render();
+```
+
 ### UML
 
-![UML](/adapter/assets/uml.svg)
+![UML](/bridge/assets/uml.svg)
 
 ### Usage
+
+```java
+Render pixelArtRender = new PixelArtRender();
+Render vectorRender = new VectorRender();
+
+Circle pixelArtCircle = new Circle(10, 10, 5, pixelArtRender);
+pixelArtCircle.render();
+
+Circle vectorCircle = new Circle(10, 10, 5, vectorRender);
+vectorCircle.render();
+
+Square pixelArtSquare = new Square(10, 10, 5, pixelArtRender);
+pixelArtSquare.render();
+
+Square vectorSquare = new Square(10, 10, 5, vectorRender);
+vectorSquare.render();
+```
 
 ## Requirements
 
