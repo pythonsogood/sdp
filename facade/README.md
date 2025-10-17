@@ -1,4 +1,4 @@
-# Assignment 5. Facade Pattern
+# Assignment 5. [Decorator pattern](/decorator). Facade Pattern
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 
