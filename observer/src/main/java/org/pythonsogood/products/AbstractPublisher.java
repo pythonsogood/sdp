@@ -16,6 +16,10 @@ public abstract class AbstractPublisher<T> {
 		this.subscribers.remove(subscriber);
 	}
 
+	public boolean isSubscribed(Subscriber<T> subscriber) {
+		return this.subscribers.contains(subscriber);
+	}
+
 	public void notifySubscribers(T context) {
 		for (Subscriber<T> subscriber : this.subscribers) {
 			subscriber.update(context);
