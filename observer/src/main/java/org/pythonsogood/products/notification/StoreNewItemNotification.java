@@ -1,6 +1,7 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.notification;
 
 import org.pythonsogood.enums.StoreNotificationType;
+import org.pythonsogood.products.store.StoreItem;
 
 public class StoreNewItemNotification extends AbstractStoreNotification {
 	public StoreNewItemNotification(StoreItem item) {

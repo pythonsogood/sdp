@@ -1,4 +1,4 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.notification;
 
 import org.pythonsogood.enums.StoreNotificationType;
 import org.pythonsogood.interfaces.StoreNotification;

@@ -3,9 +3,9 @@ package org.pythonsogood;
 import java.util.List;
 
 import org.pythonsogood.enums.StoreNotificationType;
-import org.pythonsogood.products.Customer;
-import org.pythonsogood.products.Store;
-import org.pythonsogood.products.StoreItem;
+import org.pythonsogood.products.customer.Customer;
+import org.pythonsogood.products.store.Store;
+import org.pythonsogood.products.store.StoreItem;
 
 public class Main {
     public static void main(String[] args) {

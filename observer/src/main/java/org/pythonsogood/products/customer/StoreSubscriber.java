@@ -1,4 +1,4 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.customer;
 
 import org.pythonsogood.interfaces.StoreNotification;
 import org.pythonsogood.interfaces.Subscriber;

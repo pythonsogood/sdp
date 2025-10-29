@@ -1,4 +1,4 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.customer;
 
 import java.util.List;
 import java.util.Set;

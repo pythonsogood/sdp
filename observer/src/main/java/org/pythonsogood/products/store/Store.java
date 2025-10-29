@@ -1,9 +1,12 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.store;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.pythonsogood.interfaces.StoreNotification;
+import org.pythonsogood.products.notification.StoreItemPriceUpdateNotification;
+import org.pythonsogood.products.notification.StoreNewItemNotification;
+import org.pythonsogood.products.notification.StoreRemoveItemNotification;
 
 public class Store extends AbstractPublisher<StoreNotification> {
 	private List<StoreItem> items = new ArrayList<>();
@@ -18,7 +21,7 @@ public class Store extends AbstractPublisher<StoreNotification> {
 		StoreItem item = new StoreItem(title, description, priceDollars);
 		this.items.add(item);
 
-		StoreNewItemNotification notification = new StoreNewItemNotification(item);
+		StoreNotification notification = new StoreNewItemNotification(item);
 		this.notifySubscribers(notification);
 
 		return item;
@@ -31,7 +34,7 @@ public class Store extends AbstractPublisher<StoreNotification> {
 
 		item.setPriceDollars(priceDollars);
 
-		StoreItemPriceUpdateNotification notification = new StoreItemPriceUpdateNotification(item);
+		StoreNotification notification = new StoreItemPriceUpdateNotification(item);
 		this.notifySubscribers(notification);
 	}
 
@@ -42,7 +45,7 @@ public class Store extends AbstractPublisher<StoreNotification> {
 
 		this.items.remove(item);
 
-		StoreRemoveItemNotification notification = new StoreRemoveItemNotification(item);
+		StoreNotification notification = new StoreRemoveItemNotification(item);
 		this.notifySubscribers(notification);
 
 		return true;

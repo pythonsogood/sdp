@@ -1,4 +1,4 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.store;
 
 public class StoreItem {
 	private String title;

@@ -1,4 +1,4 @@
-package org.pythonsogood.products;
+package org.pythonsogood.products.store;
 
 import java.util.HashSet;
 import java.util.Set;
