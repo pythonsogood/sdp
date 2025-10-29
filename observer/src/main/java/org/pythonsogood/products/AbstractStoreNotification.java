@@ -14,6 +14,11 @@ public class AbstractStoreNotification implements StoreNotification {
 		this.description = description;
 	}
 
+	public AbstractStoreNotification(StoreNotificationType type, String title) {
+		this.type = type;
+		this.title = title;
+	}
+
 	@Override
 	public StoreNotificationType getType() {
 		return this.type;
@@ -27,5 +32,14 @@ public class AbstractStoreNotification implements StoreNotification {
 	@Override
 	public String getDescription() {
 		return this.description;
+	}
+
+	@Override
+	public String toString() {
+		if (this.description == null) {
+			return this.getTitle();
+		}
+
+		return String.format("%s\n\t\t%s", this.getTitle(), this.getDescription());
 	}
 }

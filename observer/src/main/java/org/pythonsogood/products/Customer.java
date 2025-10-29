@@ -6,35 +6,44 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.pythonsogood.enums.StoreNotificationType;
+import org.pythonsogood.interfaces.Publisher;
 import org.pythonsogood.interfaces.StoreNotification;
 
 public class Customer {
+	private String name;
 	private UUID uuid = UUID.randomUUID();
 
-	private Store store;
 	private StoreSubscriber subscriber = new StoreSubscriber(this);
 
 	private Set<StoreNotificationType> notificationTypesFilters;
 
-	public Customer(Store store) {
-		this.store = store;
+	public Customer(String name) {
+		this.name = name;
 	}
 
-	public Customer(UUID uuid, Store store) {
+	public Customer(String name, UUID uuid) {
+		this.name = name;
 		this.uuid = uuid;
-		this.store = store;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public UUID getUuid() {
 		return this.uuid;
 	}
 
-	public void subscribeStoreNotifications() {
-		this.store.subscribe(this.subscriber);
+	public void subscribeStoreNotifications(Publisher<StoreNotification> store) {
+		store.subscribe(this.subscriber);
 	}
 
-	public void unsubscribeStoreNotifications() {
-		this.store.unsubscribe(this.subscriber);
+	public void unsubscribeStoreNotifications(Publisher<StoreNotification> store) {
+		store.unsubscribe(this.subscriber);
 	}
 
 	public void setStoreNotificationFilter(List<StoreNotificationType> notificationTypes) {
@@ -50,7 +59,7 @@ public class Customer {
 			return;
 		}
 
-		System.out.println(String.format("[%s] %s\n\t%s", this.hashCode(), notification.getTitle(), notification.getDescription()));
+		System.out.println(String.format("[%s]\t%s", this.name, notification.toString()));
 	}
 
 	@Override

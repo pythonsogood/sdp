@@ -9,21 +9,22 @@ import org.pythonsogood.products.StoreItem;
 
 public class Main {
     public static void main(String[] args) {
-		Store store = new Store();
+		Store sevenElevenStore = new Store();
 
-		Customer customer1 = new Customer(store);
-		Customer customer2 = new Customer(store);
+		Customer customerBob = new Customer("Bob");
+		Customer customerAlice = new Customer("Alice");
 
-		customer1.setStoreNotificationFilter(List.of(StoreNotificationType.NewItem));
+		customerBob.setStoreNotificationFilter(List.of(StoreNotificationType.NewItem, StoreNotificationType.ItemRemoved));
 
-		customer1.subscribeStoreNotifications();
+		customerBob.subscribeStoreNotifications(sevenElevenStore);
+		customerAlice.subscribeStoreNotifications(sevenElevenStore);
 
-		StoreItem socks1 = store.addNewItem("socks", "they are cool", 2.5f);
+		StoreItem adidasSocks = sevenElevenStore.addNewItem("Adidas Socks", "The real socks designed by Adidas.", 2.5f);
+		StoreItem farmMilk = sevenElevenStore.addNewItem("Farm Milk", "Milk from a real farm.", 2.5f);
 
-		customer2.subscribeStoreNotifications();
+		customerAlice.setStoreNotificationFilter(List.of(StoreNotificationType.ItemPriceUpdate));
 
-		StoreItem socks2 = store.addNewItem("another socks", "they are better than previous ones", 2.5f);
-
-		store.setItemPriceDollars(socks1, 2.3f);
+		sevenElevenStore.setItemPriceDollars(adidasSocks, 2.3f);
+		sevenElevenStore.removeItem(farmMilk);
     }
 }

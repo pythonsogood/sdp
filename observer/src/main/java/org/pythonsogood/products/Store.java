@@ -1,32 +1,50 @@
 package org.pythonsogood.products;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.pythonsogood.interfaces.StoreNotification;
 
 public class Store extends AbstractPublisher<StoreNotification> {
+	private List<StoreItem> items = new ArrayList<>();
+
 	public Store() {}
 
-	public StoreItem addNewItem(String title, String description, float price, boolean silent) {
-		StoreItem item = new StoreItem(title, description, price);
+	public List<StoreItem> getItems() {
+		return this.items;
+	}
 
-		if (!silent) {
-			StoreNewItemNotification notification = new StoreNewItemNotification(item);
-			this.notifySubscribers(notification);
-		}
+	public StoreItem addNewItem(String title, String description, float priceDollars) {
+		StoreItem item = new StoreItem(title, description, priceDollars);
+		this.items.add(item);
+
+		StoreNewItemNotification notification = new StoreNewItemNotification(item);
+		this.notifySubscribers(notification);
 
 		return item;
 	}
 
-	public StoreItem addNewItem(String title, String description, float price) {
-		return this.addNewItem(title, description, price, false);
-	}
-
 	public void setItemPriceDollars(StoreItem item, float priceDollars) {
-		float oldItemPriceDollars = item.getPriceDollars();
+		if (!this.items.contains(item)) {
+			throw new RuntimeException(String.format("Item %s does not exist in the store!", item.getTitle()));
+		}
+
 		item.setPriceDollars(priceDollars);
 
-		if (oldItemPriceDollars > priceDollars) {
-			StoreItemPriceLoweredNotification notification = new StoreItemPriceLoweredNotification(item);
-			this.notifySubscribers(notification);
+		StoreItemPriceUpdateNotification notification = new StoreItemPriceUpdateNotification(item);
+		this.notifySubscribers(notification);
+	}
+
+	public boolean removeItem(StoreItem item) {
+		if (!this.items.contains(item)) {
+			return false;
 		}
+
+		this.items.remove(item);
+
+		StoreRemoveItemNotification notification = new StoreRemoveItemNotification(item);
+		this.notifySubscribers(notification);
+
+		return true;
 	}
 }
