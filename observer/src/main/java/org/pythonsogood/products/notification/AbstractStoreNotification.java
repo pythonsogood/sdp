@@ -3,7 +3,7 @@ package org.pythonsogood.products.notification;
 import org.pythonsogood.enums.StoreNotificationType;
 import org.pythonsogood.interfaces.StoreNotification;
 
-public class AbstractStoreNotification implements StoreNotification {
+public abstract class AbstractStoreNotification implements StoreNotification {
 	private StoreNotificationType type;
 	private String title;
 	private String description;
