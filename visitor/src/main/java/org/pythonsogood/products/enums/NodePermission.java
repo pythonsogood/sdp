@@ -1,5 +1,5 @@
 package org.pythonsogood.products.enums;
 
-public enum FileSystemPermissionType {
+public enum NodePermission {
 	EXECUTE, READ, WRITE
 }
